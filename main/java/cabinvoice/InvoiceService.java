@@ -1,8 +1,16 @@
 package cabinvoice;
-
 public class InvoiceService {
-        public static void main(String[] args) {
-            System.out.println("Welcome to the Cab Invoice Generator");
+
+    private static final double MINFARE = 5;
+    private static final double MINCOSTPERKM = 10;
+    private static final int COSTPERTIME = 1;
+
+    public double calculateFare(double distance, int time) {
+        double totalFare = distance * MINCOSTPERKM + time * COSTPERTIME;
+        if(totalFare < MINFARE) {
+            return MINFARE;
         }
+        return totalFare;
     }
+}
 
